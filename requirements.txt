@@ -1,6 +1,11 @@
-fastapi==0.95.2
-uvicorn==0.18.2
-sqlalchemy==2.0.20
-asyncpg==0.27.0 
-alembic==1.11.1
-pytest==7.4.2
+fastapi
+uvicorn
+sqlalchemy
+asyncpg
+alembic
+pydantic
+python-dotenv
+pytest
+pytest-asyncio
+httpx
+aiosqlite

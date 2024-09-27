@@ -1,8 +1,7 @@
-# Здесь позже будут CRUD операции для продуктов (создание, обновление и т.д.)
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 from typing import List
-from .. import crud, schemas, models
+from .. import crud, schemas
 from ..database import get_db
 
 router = APIRouter()

@@ -4,11 +4,14 @@ from datetime import datetime
 import enum
 
 # Схема для создания нового продукта
-class ProductCreate(BaseModel):
+class ProductBase(BaseModel):
     name: str
     description: str
     price: float
     quantity_in_stock: int
+
+    class Config:
+        orm_mode = True  
 
 # Схема для возврата данных о продукте
 class Product(BaseModel):
@@ -45,6 +48,16 @@ class Order(BaseModel):
     created_at: datetime
     status: OrderStatus
     items: List[OrderItem]
+
+    class Config:
+        orm_mode = True
+
+
+class ProductCreate(ProductBase):
+    pass
+
+class Product(ProductBase):
+    id: int
 
     class Config:
         orm_mode = True

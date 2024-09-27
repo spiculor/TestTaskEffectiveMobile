@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, Float, DateTime, ForeignKey, Enum
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship, declarative_base
 from datetime import datetime
 from .database import Base
 import enum
@@ -27,9 +27,10 @@ class Order(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     created_at = Column(DateTime, default=datetime.utcnow)
-    status = Column(Enum(OrderStatus, native_enum=False), default=OrderStatus.processing)  
+    status = Column(String, default=OrderStatus.processing.value)  # Указываем строковое значение
 
     items = relationship("OrderItem", back_populates="order", lazy="joined")
+
 
 
 # Модель для элементов заказа
